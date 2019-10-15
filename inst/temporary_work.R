@@ -22,3 +22,9 @@ A <- B
 BB <- geesmv2::mat.sqrt(B)
 BB <- geesmv::mat.sqrt(B)
 BB %*% BB
+
+
+###################################
+
+file.copy("F://R-Code/gmds2019/modified_geesmv/GEE.var.wl_pm.R",
+          "F://R-Code/geesmv2/R/GEE.var.wl_bin.aggr.R")
