@@ -1,3 +1,23 @@
+#' Title
+#'
+#' @param formula an object of class "formula" (or one that can be coerced to that class): 
+#' a formula expression as for other regression models to be fitted, 
+#' of the form c(successes,failures) ~ predictors. The details of formula specification can be seen in glm() and gee().
+#' @param id a vector which identifies the clusters. The length of id should be the same as the total number of observations. 
+#' Data is assumed to be sorted so that observations on a cluster are contiguous rows for all entities in the formula.
+#' @param data an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) 
+#' containing the variables in the model. If not found in data, the variables are taken from environment(formula), 
+#' typically the environment from which glm is called.
+#' @param corstr a character string specifying working correlation structure: 
+#' "independence", "AR-M","exchangeable", "unstructured"  are possible.
+#' @param b adjustment factor in the proposed variance estimator, 
+#' which is prespecfied subjectively to avoid extreme adjustments when the cluster size is close to 1. 
+#' The default value is 0.75.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 GEE.var.fg_bin.aggr <-
   function(formula,id,data,corstr="independence",b=0.75){
     #########################################################################

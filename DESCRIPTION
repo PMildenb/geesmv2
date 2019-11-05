@@ -12,3 +12,4 @@ Description: This is a (slightly) modified version of R-pgk geesmv by Ming Wang<
 License: GPL (>= 3)
 Packaged: 2015-10-12 17:20:45 UTC; Joe
 NeedsCompilation: no
+RoxygenNote: 6.1.1

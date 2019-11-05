@@ -1,5 +1,23 @@
+#' GEE.var.wl_bin.aggr
+#'
+#' @param formula an object of class "formula" (or one that can be coerced to that class): 
+#' a formula expression as for other regression models to be fitted, 
+#' of the form c(successes,failures) ~ predictors. The details of formula specification can be seen in glm() and gee().
+#' @param id a vector which identifies the clusters. The length of id should be the same as the total number of observations. 
+#' Data is assumed to be sorted so that observations on a cluster are contiguous rows for all entities in the formula.
+#' @param data an optional data frame, list or environment (or object coercible by as.data.frame to a data frame) 
+#' containing the variables in the model. If not found in data, the variables are taken from environment(formula), 
+#' typically the environment from which glm is called.
+#' @param corstr a character string specifying working correlation structure: 
+#' "independence", "AR-M","exchangeable", "unstructured"  are possible.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' 
 GEE.var.wl_bin.aggr  <-
-  function(formula,id,family=gaussian,data,corstr="independence"){
+  function(formula,id,data,corstr="independence"){
     #########################################################################
     # Arguments:
     # formula  specify the model of interest
@@ -56,21 +74,10 @@ GEE.var.wl_bin.aggr  <-
     }else{
       print(corstr)
       stop("'working correlation structure' not recognized")
-    }   
-    if(is.character(family)){
-      family <- switch(family,
-                       "gaussian"="gaussian",
-                       "binomial"="binomial",
-                       "poisson"="poisson")
-    }else{ 
-      if(is.function(family)){
-        family <- family()[[1]]
-      }else{
-        print(family)
-        stop("'family' not recognized")
-      }    
     }
     
+    family <- "binomial"
+
     ### Get the design matrix;
     m <- model.frame(formula, data)
     mat <- as.data.frame(model.matrix(formula, m))
@@ -129,7 +136,6 @@ GEE.var.wl_bin.aggr  <-
       }
     }
     unstr<-step/size
-    print(step)
     #diag(unstr)<-rep(1, cluster$n[i])
     step11<-matrix(0,nrow=len,ncol=len)
     step12<-matrix(0,nrow=len,ncol=len)
