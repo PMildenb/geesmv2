@@ -244,21 +244,21 @@ GEE.var.kc.md.fg.pan.wl_pm <-
                    var.se.beta.wl      = (cov.var.wl)[2]  #  [2] returns only se of tx.var 
       )
     } else {
-      out <- list(GEE_beta        = beta_est[diag_cols],
-                   se.beta.naive   = sqrt(diag(gee.fit$naive.variance)[diag_cols]), # ["tx.var","tx.var"]),
-                   se.beta.robust  = sqrt(diag(gee.fit$robust.variance)[diag_cols]),# ["tx.var","tx.var"]),
-                   se.beta.lz      = sqrt(diag(cov.beta.lz)[diag_cols]),   ## should equal se.beta.robust 
-                   se.beta.md      = sqrt(diag(cov.beta.md)[diag_cols]),  #  [diag_cols] returns only se of tx.var 
-                   se.beta.kc      = sqrt(diag(cov.beta.kc)[diag_cols]),  #  [diag_cols] returns only se of tx.var 
-                   se.beta.fg      = sqrt(diag(cov.beta.fg)[diag_cols]),  #  [diag_cols] returns only se of tx.var 
-                   se.beta.pan     = sqrt(diag(cov.beta.pan)[diag_cols]), #  [diag_cols] returns only se of tx.var 
-                   se.beta.wl      = sqrt(diag(cov.beta.wl)[diag_cols]),   
-                   var.se.beta.lz      = (cov.var.lz)[diag_cols],  #  [diag_cols] returns only se of tx.var 
-                   var.se.beta.md      = (cov.var.md)[diag_cols],  #  [diag_cols] returns only se of tx.var 
-                   var.se.beta.kc      = (cov.var.kc)[diag_cols],  #  [diag_cols] returns only se of tx.var 
-                   var.se.beta.fg      = (cov.var.fg)[diag_cols],  #  [diag_cols] returns only se of tx.var 
-                   var.se.beta.pan     = (cov.var.pan)[diag_cols],  
-                   var.se.beta.wl      = (cov.var.wl)[diag_cols]  
+      out <- list(GEE_beta        = beta_est,
+                   se.beta.naive   = sqrt(diag(gee.fit$naive.variance)), 
+                   se.beta.robust  = sqrt(diag(gee.fit$robust.variance)),
+                   se.beta.lz      = sqrt(diag(cov.beta.lz)),   ## should equal se.beta.robust 
+                   se.beta.md      = sqrt(diag(cov.beta.md)),   
+                   se.beta.kc      = sqrt(diag(cov.beta.kc)),   
+                   se.beta.fg      = sqrt(diag(cov.beta.fg)),   
+                   se.beta.pan     = sqrt(diag(cov.beta.pan)),  
+                   se.beta.wl      = sqrt(diag(cov.beta.wl)),   
+                   var.se.beta.lz      = (cov.var.lz),   
+                   var.se.beta.md      = (cov.var.md),   
+                   var.se.beta.kc      = (cov.var.kc),   
+                   var.se.beta.fg      = (cov.var.fg),   
+                   var.se.beta.pan     = (cov.var.pan),  
+                   var.se.beta.wl      = (cov.var.wl)  
       )                   
     }
     
