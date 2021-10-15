@@ -53,7 +53,7 @@ GEE.var.md_bin.aggr  <-
     }
     
     ### Fit the GEE model to get the estimate of parameters \hat{\beta};
-    gee.fit <- gee(formula,data=data,id=id,family=family,corstr=corstr)
+    gee.fit <- gee(formula,data=data,id=id,family=binomial(),corstr=corstr)
     beta_est <- gee.fit$coefficient
     alpha <- gee.fit$working.correlation[1,2]
     len <- length(beta_est)
